@@ -5,21 +5,13 @@
             <thead>
                 <tr>
                     <th style="width: 50%;">First Header</th>
-                    <th>First day</th>
-                    <th>Second day</th>
-                    <th>Third day</th>
-                    <th>Fourth day</th>
-                    <th>Fifth day</th>
+                    <th ng-repeat="day in home.cityDataList[0].dailyAvgTemp | limitTo:5">{{day.date | date:'EEE d'}}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="cityData in home.cityDataList">
-                    <td>{{ cityData.name}}</td>
-                    <td>Temp</td>
-                    <td>Temp</td>
-                    <td>Temp</td>
-                    <td>Temp</td>
-                    <td>Temp</td>
+                    <td>{{ cityData.name }}</td>
+                    <td ng-repeat="temp in cityData.dailyAvgTemp | limitTo: 5 track by $index">{{temp.avgTemp}} °C</td>
                 </tr>
             </tbody>
         </table>
