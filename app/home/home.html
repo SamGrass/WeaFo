@@ -1,1 +1,27 @@
-<div>{{home.city.name}}</div>
+<h2 class="mb-4">Popular locations</h2>
+<div class="card">
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="width: 50%;">First Header</th>
+                    <th>First day</th>
+                    <th>Second day</th>
+                    <th>Third day</th>
+                    <th>Fourth day</th>
+                    <th>Fifth day</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="cityData in home.cityDataList">
+                    <td>{{ cityData.name}}</td>
+                    <td>Temp</td>
+                    <td>Temp</td>
+                    <td>Temp</td>
+                    <td>Temp</td>
+                    <td>Temp</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
