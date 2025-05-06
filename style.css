@@ -31,3 +31,9 @@ a {
 h2{
     margin-bottom: 0;
 }
+
+.ms-table-row:hover {
+
+    background: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(160, 220, 235, 0.3) 50%, rgba(255, 255, 255, 1) 100%);
+    cursor: pointer;
+}
