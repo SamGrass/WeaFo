@@ -7,8 +7,8 @@ var WeaFo = angular.module('WeaFo', ["ngRoute"])
                     .when('/map', {
                         template: "<map></map>"
                     })
-                    .when('/city', {
-                        template: "<city></city>"
+                    .when('/city-details/:city', {
+                        template: "<city-details></city-details>"
                     })
                     .otherwise({ redirectTo: '/'})
         });
