@@ -1,17 +1,17 @@
 <h2 class="mb-4">Popular locations</h2>
-<div class="card">
+<div class="card mb-5">
     <div class="card-body">
         <table class="table">
             <thead>
                 <tr>
                     <th style="width: 50%;">First Header</th>
-                    <th ng-repeat="day in home.cityDataList[0].dailyAvgTemp | limitTo:5">{{day.date | date:'EEE d'}}</th>
+                    <th ng-repeat="day in home.cityDataList[0].dailyAvgTemp | limitTo: 4">{{day.date | date:'EEE d'}}</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="cityData in home.cityDataList">
-                    <td>{{ cityData.name }}</td>
-                    <td ng-repeat="temp in cityData.dailyAvgTemp | limitTo: 5 track by $index">{{temp.avgTemp}} °C</td>
+                <tr ng-repeat="cityData in home.cityDataList" >
+                    <td class="align-middle">{{ cityData.name }}</td>
+                    <td class="align-middle" ng-repeat="temp in cityData.dailyAvgTemp | limitTo: 4 track by $index"><img ng-src="{{home.iconDaily + temp.icon}}.png" alt="">{{temp.avgTemp}} °C</td>
                 </tr>
             </tbody>
         </table>

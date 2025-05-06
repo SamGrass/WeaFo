@@ -9,12 +9,12 @@ angular.module('WeaFo').controller('homeController', ['weatherService', function
             }
             this.sunrise = new Date(apiData.city.sunrise * 1000);
             this.sunset = new Date(apiData.city.sunset * 1000);
-
+            this.dailyAvgTemp = null;
             this.forecastList = apiData.list.map(data => {
                 return {
                     temp: data.main.temp,
                     tempFelt: data.main.feels_like,
-                    dailyAvgTemp: null,
+
                     weather: {
                         type: data.weather[0].main,
                         icon: data.weather[0].icon
@@ -40,6 +40,7 @@ angular.module('WeaFo').controller('homeController', ['weatherService', function
                     var temp = item.temp;
                     var dateTime = new Date(item.time);
                     var time = dateTime.toDateString();
+                    var icon = item.weather.icon;
 
                     if (dailyData[time]) {
                         dailyData[time].sum += temp;
@@ -47,7 +48,8 @@ angular.module('WeaFo').controller('homeController', ['weatherService', function
                     } else {
                         dailyData[time] = {
                             sum: temp,
-                            count: 1
+                            count: 1,
+                            icon: icon
                         };
                     }
                 })
@@ -56,23 +58,24 @@ angular.module('WeaFo').controller('homeController', ['weatherService', function
                     var avg = Math.round(dailyData[key].sum / dailyData[key].count);
                     dailyAvg.push({
                         date: key,
-                        avgTemp: avg
+                        avgTemp: avg,
+                        icon: dailyData[key].icon
                     });
                 }
                 return dailyAvg;
             }
         }
+
     }
     var home = this;
     home.cityDataList = [];
     home.cities = ["London", "Tokyo", "New York", "Paris", "Rome", "Sydney", "Cairo", "Rio de Janeiro", "Toronto", "Berlin"];
-
+    home.iconDaily = weatherService.getIconBaseUrl();
 
     angular.forEach(home.cities, function (city) {
         weatherService.getCityFromName(city).then(function (res) {
             var cityData = new City(res.data);
-            console.log(cityData.getDailyAvgTemp());
-            console.log(cityData);
+
             cityData.dailyAvgTemp = cityData.getDailyAvgTemp();
             home.cityDataList.push(cityData);
 
