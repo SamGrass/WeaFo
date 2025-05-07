@@ -1,18 +1,18 @@
-<h2 class="mb-4">Popular locations</h2>
-<div class="card mb-5">
+<h2 class="mb-3">Popular locations</h2>
+<div class="shadow card mb-5">
     <div class="mx-4 mt-3">
         <table class="table mb-0">
             <thead>
                 <tr>
                     <th style="width: 35%;"></th>
-                    <th class="text-center" ng-repeat="day in home.cityDataList[0].dailyAvgTemp | limitTo: 4">{{day.date}}</th>
+                    <th class="text-center" ng-repeat="day in home.cityDataList[0].dailyData | limitTo: 4">{{day.date}}</th>
                 </tr>
             </thead>
             <tbody class="ms-remove-border">
                 <tr class="ms-table-row" ng-click="home.onDetails(cityData.name)" ng-repeat="cityData in home.cityDataList">
                     <td  class="align-middle">{{ cityData.name }}</td>
-                    <td class="align-middle text-center" ng-repeat="temp in cityData.dailyAvgTemp | limitTo: 4 track by $index">
-                        <img ng-src="{{home.iconDaily + temp.icon}}.png" alt="">{{temp.avgTemp}} °C
+                    <td class="align-middle text-center" ng-repeat="temp in cityData.dailyData | limitTo: 4 track by $index">
+                        <img ng-src="{{home.iconDaily + temp.icon}}.png" alt="">{{temp.avgTemp}}°
                     </td>
                 </tr>
             </tbody>
