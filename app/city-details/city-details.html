@@ -1,1 +1,36 @@
-<h1>{{cd.cityData.name}}</h1>
+<h2 class="mb-3">{{cd.cityData.name}}</h2>
+<div class="shadow card mb-5">
+    <div class="mx-4 mt-3">
+        <table class="table mb-0">
+            <thead>
+            <tr>
+                <th style="width: 35%;"></th>
+                <th class="text-center">Morning</th>
+                <th class="text-center">Afternoon</th>
+                <th class="text-center">Evening</th>
+                <th class="text-center">Night</th>
+                <th class="text-center">Temp min/max</th>
+                <th class="text-center">Wind</th>
+                <th class="text-center">Precipitation</th>
+            </tr>
+            </thead>
+            <tbody class="ms-remove-border">
+            <tr class="ms-table-row" ng-repeat="day in cd.cityData.dailyData">
+                <td  class="align-middle">{{ day.date }}</td>
+                <td class="align-middle text-center">icon</td>
+                <td class="align-middle text-center">icon</td>
+                <td class="align-middle text-center">icon</td>
+                <td class="align-middle text-center">icon</td>
+                <td class="align-middle text-center">{{ day.minTemp }}° / {{ day.maxTemp }}°</td>
+                <td class="align-middle text-center">{{ day.wind.speed}} m/s</td>
+                <td class="align-middle text-center">{{ day.rain > 0 ? day.rain + ' mm' : (day.snow > 0 ? day.snow + ' mm' : '-') }}</td>
+                <!--Metodo più lungo-->
+                <!--<td ng-if="day.rain > 0" class="align-middle text-center">1</td>
+                <td ng-if="day.snow > 0" class="align-middle text-center">2</td>
+                <td ng-if="!(day.rain > 0) && !(day.snow > 0)" class="align-middle text-center">0</td>-->
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
