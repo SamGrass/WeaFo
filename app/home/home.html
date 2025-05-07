@@ -1,6 +1,6 @@
 <h2 class="mb-4">Popular locations</h2>
 <div class="card mb-5">
-    <div class="card-body">
+    <div class="mx-4 mt-3">
         <table class="table mb-0">
             <thead>
                 <tr>
@@ -8,7 +8,7 @@
                     <th class="text-center" ng-repeat="day in home.cityDataList[0].dailyAvgTemp | limitTo: 4">{{day.date}}</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="ms-remove-border">
                 <tr class="ms-table-row" ng-click="home.onDetails(cityData.name)" ng-repeat="cityData in home.cityDataList">
                     <td  class="align-middle">{{ cityData.name }}</td>
                     <td class="align-middle text-center" ng-repeat="temp in cityData.dailyAvgTemp | limitTo: 4 track by $index">

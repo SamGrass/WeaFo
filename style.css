@@ -10,8 +10,8 @@
 }
 body{
     color: var(--text);
-    background: #22b5f0;
-    background: linear-gradient(180deg, rgba(34, 181, 240, 1) 0%, rgba(255, 250, 250, 1) 100%);
+    background: #4CC7E6;
+    background: linear-gradient(180deg, rgba(76, 199, 230, 1) 0%, rgba(255, 250, 250, 1) 100%);
     max-width: 1300px;
     min-height: 100vh;
     margin: 0 auto;
@@ -32,8 +32,17 @@ h2{
     margin-bottom: 0;
 }
 
+.ms-logo {
+    height: 100px;
+    object-fit: contain;
+}
+
 .ms-table-row:hover {
 
     background: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(160, 220, 235, 0.3) 50%, rgba(255, 255, 255, 1) 100%);
     cursor: pointer;
+}
+
+.table tbody tr:last-child td {
+    border-bottom-width: 0;
 }
