@@ -6,27 +6,26 @@ class City {
             longitude: apiData.city.coord.lon,
         }
         this.timezone = apiData.city.timezone / 60;
-        this.tz = dayjs().utcOffset(this.timezone).format('Z');
         this.sunrise = dayjs.unix(apiData.city.sunrise).utcOffset(this.timezone).format('HH:mm');
         this.sunset = dayjs.unix(apiData.city.sunset).utcOffset(this.timezone).format('HH:mm');
 
         this.forecastList = apiData.list.map(data => {
             return {
-                temp: data.main.temp,
-                tempFelt: data.main.feels_like,
+                temp: Math.round(data.main.temp),
+                tempFelt: Math.round(data.main.feels_like),
                 weather: {
                     type: data.weather[0].main,
                     icon: data.weather[0].icon
                 },
                 wind: {
-                    speed: data.wind.speed, // meter/sec
-                    direction: data.wind.deg,
+                    speed: Math.round(data.wind.speed * 10) / 10, // meter/sec
+                    deg: data.wind.deg,
                     gust: data.wind.gust // meter/sec
                 },
 
                 pop: Math.round(data.pop * 100), // Probability of precipitation
-                rain: data.rain ? data.rain['3h'] : 0,
-                snow: data.snow ? data.snow['3h'] : 0,
+                rain: data.rain ? Math.round(data.rain['3h'] * 10) / 10 : 0,
+                snow: data.snow ? Math.round(data.snow['3h'] * 10) / 10 : 0,
                 dt: data.dt,
                 time: data.dt_txt,
                 hour: dayjs.unix(data.dt).utcOffset(this.timezone).format('HH:mm'),
@@ -40,9 +39,8 @@ class City {
             const dailyDataList = [];
             const dailyData = {};
             this.forecastList.forEach(item => {
-                let temp = Math.round(item.temp);
-                let dateTime = item.dt;
-                let day = dayjs.unix(dateTime).utcOffset(this.timezone).format('dddd,  D  MMM');
+                let temp = item.temp;
+                let day = dayjs.unix(item.dt).utcOffset(this.timezone).format('dddd,  D  MMM');
 
                 if (dailyData[day]) {
                     dailyData[day].sum += temp;
@@ -56,12 +54,12 @@ class City {
                         count: 1,
                         icon: item.weather.icon,
                         wind: {
-                            speed: Math.round(item.wind.speed * 10) / 10,
-                            direction: item.wind.direction,
+                            speed: item.wind.speed,
+                            deg: item.wind.deg,
                             gust: item.wind.gust
                         },
-                        rain: Math.round(item.rain * 10) / 10,
-                        snow: Math.round(item.snow * 10) / 10,
+                        rain: item.rain,
+                        snow: item.snow,
                     };
                     dailyDataList.push(dailyData[day]);
                 }
