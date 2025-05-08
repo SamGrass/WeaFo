@@ -1,7 +1,7 @@
 angular.module('WeaFo').controller('homeController', ['$location', 'wService', function ($location, wService) {
 
     const home = this;
-    home.iconDaily = wService.getIconBaseUrl();
+    home.iconUrl = wService.getIconBaseUrl();
     home.cityDataList = [];
     home.cities = ["London", "Tokyo", "New York", "Paris", "Milan", "Sydney", "Cairo", "Rio de Janeiro", "Toronto", "Berlin"];
 
