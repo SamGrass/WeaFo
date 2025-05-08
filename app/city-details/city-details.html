@@ -1,6 +1,30 @@
-<h2 class="mb-3">{{cd.cityData.name}}</h2>
+<h1 class="mb-3">{{cd.cityData.name}}</h1>
+
+<!--CURRENT TIME CARD-->
+<div class="shadow card mb-5" style="width: fit-content;">
+    <div class="mx-5 mt-3">
+        <h1 class="mb-3">Current time</h1>
+        <div class="fs-3 d-flex gap-5 align-items-center">
+            <img class="img-fluid" ng-src="{{cd.iconUrl + cd.now.weather.icon}}@2x.png" alt="">
+            <div class="d-flex gap-4 align-items-baseline">
+                <span>&#127777 <span ng-class="{'text-primary': cd.now.temp < 0, 'text-danger': cd.now.temp >= 0}">{{ cd.now.temp }}° </span>
+                    <span class="fs-6">Feels like <span ng-class="{'text-primary': cd.now.tempFelt < 0, 'text-danger': cd.now.tempFelt >= 0}">{{ cd.now.tempFelt }}°</span></span>
+                </span>
+                <span class="text-primary">&#128167 {{ cd.now.pop }}%</span>
+                <span class="align-middle text-center text-primary">
+                    {{ cd.now.rain > 0 ? '&#9730' + cd.now.rain + ' mm' : (cd.now.snow > 0 ? '&#10052 ' + cd.now.snow + ' mm' : '&#127746 0 mm') }}
+                </span>
+                <span class="align-middle text-center text-success"><i class="fa-solid fa-wind"></i> {{ cd.now.wind.speed }} m/s <i ng-style="{'transform': 'rotate(' + cd.now.wind.deg + 'deg)'}" class="fa-solid fa-arrow-up"></i></span>
+                <span>&#127749 {{ cd.cityData.sunrise }}</span>
+                <span>&#127751 {{ cd.cityData.sunset }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--DAILY TABLE-->
 <div class="shadow card mb-5">
-    <div class="mx-4 mt-3">
+    <div class="mx-4 my-3">
         <table class="table mb-0">
             <thead>
             <tr>
