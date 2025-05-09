@@ -1,4 +1,6 @@
+"use strict";
 var WeaFo = angular.module('WeaFo', ["ngRoute"])
+
         .config(function ($routeProvider){
                 $routeProvider
                     .when('/', {
