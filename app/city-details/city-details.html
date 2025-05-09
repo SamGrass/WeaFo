@@ -12,9 +12,9 @@
                 </span>
                 <span class="text-primary">&#128167 {{ cd.now.pop }}%</span>
                 <span class="align-middle text-center text-primary">
-                    {{ cd.now.rain > 0 ? '&#9730' + cd.now.rain + ' mm' : (cd.now.snow > 0 ? '&#10052 ' + cd.now.snow + ' mm' : '&#127746 0 mm') }}
+                    {{ cd.now.rain > 0 ? '&#9730 ' + cd.now.rain + ' mm' : (cd.now.snow > 0 ? '&#10052 ' + cd.now.snow + ' mm' : '&#127746 0 mm') }}
                 </span>
-                <span class="align-middle text-center text-success">
+                <span class="align-middle text-cen ter text-success">
                     <i class="fa-solid fa-wind"></i> {{ cd.now.wind.speed }} m/s <i ng-style="{'transform': 'rotate(' + cd.now.wind.deg + 'deg)'}" class="fa-solid fa-arrow-up"></i>
                 </span>
                 <span>&#127749 {{ cd.cityData.sunrise }}</span>
@@ -56,4 +56,4 @@
     </div>
 </div>
 
-<day-table ng-if="cd.dailyForecastList" forecast-list="cd.dailyForecastList"></day-table>
+<day-table ng-if="cd.isActive" close-table="cd.isActive = false" forecast-list="cd.dailyForecastList"></day-table>

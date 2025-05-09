@@ -1,6 +1,9 @@
 <div class="shadow card mb-5">
     <div class="mx-4 my-3">
-        <h1>Day</h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Day</h1>
+            <i role="button" ng-click="dt.closeTable()" class="fs-2 fa-solid fa-xmark"></i>
+        </div>
         <table class="table mb-0">
             <thead>
             <tr>
@@ -15,7 +18,7 @@
             </tr>
             </thead>
             <tbody class="ms-remove-border">
-                <tr class="ms-table-row" ng-repeat="forecast in dt.forecastList">
+                <tr ng-repeat="forecast in dt.forecastList">
                     <td class="align-middle text-center">{{ forecast.hour}}</td>
                     <td class="text-center">
                         <img class="img-fluid" ng-src="{{ dt.iconUrl + forecast.weather.icon}}.png" alt="">

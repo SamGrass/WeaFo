@@ -3,6 +3,7 @@ angular.module('WeaFo').component('dayTable', {
     controller: 'dayTableController',
     controllerAs: 'dt',
     bindings: {
-        forecastList: '<'
+        forecastList: '<',
+        closeTable: '&'
     }
 })
