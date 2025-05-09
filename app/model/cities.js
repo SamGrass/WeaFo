@@ -29,7 +29,7 @@ class City {
                 snow: data.snow ? Math.round(data.snow['3h'] * 10) / 10 : 0,
                 humidity: data.main.humidity,
                 dt: data.dt,
-                time: data.dt_txt,
+                time: dayjs.unix(data.dt).utcOffset(this.timezone).format('dddd,  D  MMM'),
                 hour: dayjs.unix(data.dt).utcOffset(this.timezone).hour(),
             }
         });

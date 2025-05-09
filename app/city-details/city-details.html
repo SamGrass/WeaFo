@@ -41,7 +41,7 @@
             </tr>
             </thead>
             <tbody class="ms-remove-border">
-            <tr class="ms-table-row" ng-click="cd.log($index)" ng-repeat="day in cd.cityData.dailyData track by $index">
+            <tr class="ms-table-row" ng-click="cd.displayDay(day.date, cd.cityData.forecastList)" ng-repeat="day in cd.cityData.dailyData">
                 <td  class="align-middle">{{ day.date }}</td>
                 <td><img class="img-fluid" ng-src="{{cd.iconUrl + day.iconPerHour.night}}.png" alt=""></td>
                 <td><img class="img-fluid" ng-src="{{cd.iconUrl + day.iconPerHour.morning}}.png" alt=""></td>
@@ -55,3 +55,5 @@
         </table>
     </div>
 </div>
+
+<day-table ng-if="cd.dailyForecastList" forecast-list="cd.dailyForecastList"></day-table>

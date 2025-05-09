@@ -1,10 +1,19 @@
 angular.module('WeaFo').controller('cityDetailsController', ['$routeParams', 'wService', function($routeParams, wService) {
     const cd = this;
+    let isActive = false;
     cd.iconUrl = wService.getIconBaseUrl();
     cd.cityData = {};
     cd.now = {};
-    cd.log = function (index) {
-        console.log(index)
+    cd.displayDay = function (dailyDay, forecast) {
+        cd.dailyForecastList = [];
+        console.log(dailyDay);
+        forecast.forEach(function (forecast) {
+            if (forecast.time === dailyDay) {
+                cd.dailyForecastList.push(forecast);
+            }
+        })
+        console.log(cd.dailyForecastList);
+        isActive = true;
     }
 
     wService.getCityFromName($routeParams.city)
