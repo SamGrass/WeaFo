@@ -1,0 +1,38 @@
+<div class="shadow card mb-5">
+    <div class="mx-4 my-3">
+        <h1>Day</h1>
+        <table class="table mb-0">
+            <thead>
+            <tr>
+                <th class="text-center">Hour</th>
+                <th class="text-center">Weather</th>
+                <th class="text-center">Temp</th>
+                <th class="text-center">Felt</th>
+                <th class="text-center">Humidity</th>
+                <th class="text-center">Precipitation</th>
+                <th class="text-center">Probability</th>
+                <th class="text-center">Wind</th>
+            </tr>
+            </thead>
+            <tbody class="ms-remove-border">
+                <tr class="ms-table-row" ng-repeat="forecast in dt.forecastList">
+                    <td class="align-middle text-center">{{ forecast.hour}}</td>
+                    <td class="text-center">
+                        <img class="img-fluid" ng-src="{{ dt.iconUrl + forecast.weather.icon}}.png" alt="">
+                    </td>
+                    <td class="align-middle text-center">{{ forecast.temp}}°</td>
+                    <td class="align-middle text-center">{{ forecast.tempFelt}}°</td>
+                    <td class="align-middle text-center">{{ forecast.humidity}}%</td>
+                    <td class="align-middle text-center">
+                        {{ forecast.rain > 0 ? forecast.rain + ' mm' : (forecast.snow > 0 ? forecast.snow + ' mm' : '-') }}
+                    </td>
+                    <td class="align-middle text-center">{{ forecast.pop}}%</td>
+                    <td class="align-middle text-center">
+                        <i class="fa-solid fa-wind"></i> {{ forecast.wind.speed }} m/s <i ng-style="{'transform': 'rotate(' + forecast.wind.deg + 'deg)'}" class="fa-solid fa-arrow-up"></i>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
