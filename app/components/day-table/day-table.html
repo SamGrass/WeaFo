@@ -1,7 +1,7 @@
-<div class="shadow card mb-5">
-    <div class="mx-4 my-3">
+<div class="ms-modal shadow card mb-5">
+    <div class="ms-modal-content">
         <div class="d-flex justify-content-between align-items-center">
-            <h1>Day</h1>
+            <h1>{{ dt.forecastList[0].time}}</h1>
             <i role="button" ng-click="dt.closeTable()" class="fs-2 fa-solid fa-xmark"></i>
         </div>
         <table class="table mb-0">
