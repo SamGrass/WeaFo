@@ -8,7 +8,7 @@
             <img class="img-fluid" ng-src="{{cd.iconUrl + cd.now.weather.icon}}@2x.png" alt="">
             <div id="now-forecast" class="d-flex gap">
                 <span>&#127777 <span ng-class="{'text-primary': cd.now.temp < 0, 'text-danger': cd.now.temp >= 0}">{{ cd.now.temp }}° </span>
-                    <span class="fs-6">Feels like <span ng-class="{'text-primary': cd.now.tempFelt < 0, 'text-danger': cd.now.tempFelt >= 0}">{{ cd.now.tempFelt }}°</span></span>
+                    <span style="font-size: 0.7em;">Feels like <span ng-class="{'text-primary': cd.now.tempFelt < 0, 'text-danger': cd.now.tempFelt >= 0}">{{ cd.now.tempFelt }}°</span></span>
                 </span>
                 <span class="text-primary">&#128167 {{ cd.now.pop }}%</span>
                 <span class="align-middle text-center text-primary">
@@ -40,8 +40,8 @@
                 <th class="text-center">Precipitation</th>
             </tr>
             </thead>
-            <tbody class="ms-remove-border">
-            <tr class="ms-table-row" ng-click="cd.displayDay(day.date, cd.cityData.forecastList)" ng-repeat="day in cd.cityData.dailyData">
+            <tbody>
+            <tr class="ms-table-row" ng-click="cd.openForecastModal(day.date, cd.cityData.forecastList)" ng-repeat="day in cd.cityData.dailyData"> <!--click to load the day-table component-->
                 <td  class="align-middle">{{ day.date }}</td>
                 <td class="text-center"><img class="image" ng-src="{{cd.iconUrl + day.iconPerHour.night}}.png" alt=""></td>
                 <td class="text-center"><img class="image" ng-src="{{cd.iconUrl + day.iconPerHour.morning}}.png" alt=""></td>
@@ -55,5 +55,3 @@
         </table>
     </div>
 </div>
-
-<day-table ng-if="cd.isActive" close-table="cd.isActive = false" forecast-list="cd.dailyForecastList"></day-table>

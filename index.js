@@ -1,5 +1,5 @@
 "use strict";
-var WeaFo = angular.module('WeaFo', ["ngRoute"])
+var WeaFo = angular.module('WeaFo', ["ngRoute", "ngAnimate", "ui.bootstrap"])
         .config(function ($routeProvider){
                 $routeProvider
                     .when('/', {
