@@ -1,6 +1,6 @@
-<div class="ms-modal shadow card mb-5">
-    <div class="ms-modal-content">
-        <div class="d-flex justify-content-between align-items-center">
+<div class="ms-modal ">
+    <div  class="ms-modal-content panel">
+        <div class="d-flex">
             <h1>{{ dt.forecastList[0].time}}</h1>
             <i role="button" ng-click="dt.closeTable()" class="fs-2 fa-solid fa-xmark"></i>
         </div>
@@ -19,18 +19,18 @@
             </thead>
             <tbody class="ms-remove-border">
                 <tr ng-repeat="forecast in dt.forecastList">
-                    <td class="align-middle text-center">{{ forecast.hour}}</td>
+                    <td class="text-center">{{ forecast.hour}}</td>
                     <td class="text-center">
-                        <img class="img-fluid" ng-src="{{ dt.iconUrl + forecast.weather.icon}}.png" alt="">
+                        <img class="image" ng-src="{{ dt.iconUrl + forecast.weather.icon}}.png" alt="">
                     </td>
-                    <td class="align-middle text-center">{{ forecast.temp}}°</td>
-                    <td class="align-middle text-center">{{ forecast.tempFelt}}°</td>
-                    <td class="align-middle text-center">{{ forecast.humidity}}%</td>
-                    <td class="align-middle text-center">
+                    <td class="text-center">{{ forecast.temp}}°</td>
+                    <td class="text-center">{{ forecast.tempFelt}}°</td>
+                    <td class="text-center">{{ forecast.humidity}}%</td>
+                    <td class="text-center">
                         {{ forecast.rain > 0 ? forecast.rain + ' mm' : (forecast.snow > 0 ? forecast.snow + ' mm' : '-') }}
                     </td>
-                    <td class="align-middle text-center">{{ forecast.pop}}%</td>
-                    <td class="align-middle text-center">
+                    <td class="text-center">{{ forecast.pop}}%</td>
+                    <td class="text-center">
                         <i class="fa-solid fa-wind"></i> {{ forecast.wind.speed }} m/s <i ng-style="{'transform': 'rotate(' + forecast.wind.deg + 'deg)'}" class="fa-solid fa-arrow-up"></i>
                     </td>
 

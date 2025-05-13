@@ -1,12 +1,12 @@
-<h1 class="mb-3">{{cd.cityData.name}}</h1>
+<h1 class="mb">{{cd.cityData.name}}</h1>
 
 <!--CURRENT TIME CARD-->
-<div class="shadow card mb-5" style="width: fit-content;">
-    <div class="mx-5 mt-3">
+<div class="panel my" style="width: fit-content;">
+    <div class="mx">
         <h1>{{ cd.cityData.currentHour}}</h1>
-        <div class="fs-3 d-flex gap-5 align-items-center">
+        <div class="fs-3 d-flex gap">
             <img class="img-fluid" ng-src="{{cd.iconUrl + cd.now.weather.icon}}@2x.png" alt="">
-            <div class="d-flex gap-4 align-items-baseline">
+            <div id="now-forecast" class="d-flex gap">
                 <span>&#127777 <span ng-class="{'text-primary': cd.now.temp < 0, 'text-danger': cd.now.temp >= 0}">{{ cd.now.temp }}° </span>
                     <span class="fs-6">Feels like <span ng-class="{'text-primary': cd.now.tempFelt < 0, 'text-danger': cd.now.tempFelt >= 0}">{{ cd.now.tempFelt }}°</span></span>
                 </span>
@@ -25,8 +25,8 @@
 </div>
 
 <!--DAILY TABLE-->
-<div class="shadow card mb-5">
-    <div class="mx-4 my-3">
+<div class="panel my">
+    <div class="mx pt">
         <table class="table mb-0">
             <thead>
             <tr>
@@ -43,11 +43,11 @@
             <tbody class="ms-remove-border">
             <tr class="ms-table-row" ng-click="cd.displayDay(day.date, cd.cityData.forecastList)" ng-repeat="day in cd.cityData.dailyData">
                 <td  class="align-middle">{{ day.date }}</td>
-                <td><img class="img-fluid" ng-src="{{cd.iconUrl + day.iconPerHour.night}}.png" alt=""></td>
-                <td><img class="img-fluid" ng-src="{{cd.iconUrl + day.iconPerHour.morning}}.png" alt=""></td>
-                <td><img class="img-fluid" ng-src="{{cd.iconUrl + day.iconPerHour.afternoon}}.png" alt=""></td>
-                <td><img class="img-fluid" ng-src="{{cd.iconUrl + day.iconPerHour.evening}}.png" alt=""></td>
-                <td class="align-middle text-center">{{ day.minTemp }}° / {{ day.maxTemp }}°</td>
+                <td class="text-center"><img class="image" ng-src="{{cd.iconUrl + day.iconPerHour.night}}.png" alt=""></td>
+                <td class="text-center"><img class="image" ng-src="{{cd.iconUrl + day.iconPerHour.morning}}.png" alt=""></td>
+                <td class="text-center"><img class="image" ng-src="{{cd.iconUrl + day.iconPerHour.afternoon}}.png" alt=""></td>
+                <td class="text-center"><img class="image" ng-src="{{cd.iconUrl + day.iconPerHour.evening}}.png" alt=""></td>
+                <td class="align-center text-center">{{ day.minTemp }}° / {{ day.maxTemp }}°</td>
                 <td class="align-middle text-center">{{ day.wind[0].speed }} m/s</td>
                 <td class="align-middle text-center">{{ day.sumPrecipitation > 0 ? day.sumPrecipitation.toFixed(1) + ' mm' : '-' }}</td>
             </tr>

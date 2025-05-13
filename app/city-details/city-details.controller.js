@@ -4,6 +4,7 @@ angular.module('WeaFo').controller('cityDetailsController', ['$routeParams', 'wS
     cd.iconUrl = wService.getIconBaseUrl();
     cd.cityData = {};
     cd.now = {};
+
     cd.displayDay = function (dailyDay, forecast) {
         cd.dailyForecastList = [];
         console.log(dailyDay);

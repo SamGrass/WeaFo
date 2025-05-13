@@ -10,7 +10,6 @@ angular.module('WeaFo').controller('homeController', ['$location', 'wService', f
         wService.getCityFromName(city).then(function (res) {
             let cityData = new City(res.data);
             home.cityDataList.push(cityData);
-            console.log(cityData);
         }).catch(function (err) {
             console.log(err.message);
         })
