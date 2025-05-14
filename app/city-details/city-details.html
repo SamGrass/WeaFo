@@ -11,10 +11,10 @@
                     <span style="font-size: 0.7em;">Feels like <span ng-class="{'text-primary': cd.now.tempFelt < 0, 'text-danger': cd.now.tempFelt >= 0}">{{ cd.now.tempFelt }}°</span></span>
                 </span>
                 <span class="text-primary">&#128167 {{ cd.now.pop }}%</span>
-                <span class="align-middle text-center text-primary">
+                <span class=" text-center text-primary">
                     {{ cd.now.rain > 0 ? '&#9730 ' + cd.now.rain + ' mm' : (cd.now.snow > 0 ? '&#10052 ' + cd.now.snow + ' mm' : '&#127746 0 mm') }}
                 </span>
-                <span class="align-middle text-cen ter text-success">
+                <span class="text-success">
                     <i class="fa-solid fa-wind"></i> {{ cd.now.wind.speed }} m/s <i ng-style="{'transform': 'rotate(' + cd.now.wind.deg + 'deg)'}" class="fa-solid fa-arrow-up"></i>
                 </span>
                 <span>&#127749 {{ cd.cityData.sunrise }}</span>
@@ -29,28 +29,28 @@
     <div class="mx pt">
         <table class="table mb-0">
             <thead>
-            <tr>
-                <th style="width: 35%;"></th>
-                <th class="text-center">Night</th>
-                <th class="text-center">Morning</th>
-                <th class="text-center">Afternoon</th>
-                <th class="text-center">Evening</th>
-                <th class="text-center">Temp min/max</th>
-                <th class="text-center">Wind</th>
-                <th class="text-center">Precipitation</th>
-            </tr>
+                <tr>
+                    <th style="width: 35%;"></th>
+                    <th class="text-center">Night</th>
+                    <th class="text-center">Morning</th>
+                    <th class="text-center">Afternoon</th>
+                    <th class="text-center">Evening</th>
+                    <th class="text-center">Temp min/max</th>
+                    <th class="text-center">Wind</th>
+                    <th class="text-center">Precipitation</th>
+                </tr>
             </thead>
             <tbody>
-            <tr class="ms-table-row" ng-click="cd.openForecastModal(day.date, cd.cityData.forecastList)" ng-repeat="day in cd.cityData.dailyData"> <!--click to load the day-table component-->
-                <td  class="align-middle">{{ day.date }}</td>
-                <td class="text-center"><img class="image" ng-src="{{cd.iconUrl + day.iconPerHour.night}}.png" alt=""></td>
-                <td class="text-center"><img class="image" ng-src="{{cd.iconUrl + day.iconPerHour.morning}}.png" alt=""></td>
-                <td class="text-center"><img class="image" ng-src="{{cd.iconUrl + day.iconPerHour.afternoon}}.png" alt=""></td>
-                <td class="text-center"><img class="image" ng-src="{{cd.iconUrl + day.iconPerHour.evening}}.png" alt=""></td>
-                <td class="align-center text-center">{{ day.minTemp }}° / {{ day.maxTemp }}°</td>
-                <td class="align-middle text-center">{{ day.wind[0].speed }} m/s</td>
-                <td class="align-middle text-center">{{ day.sumPrecipitation > 0 ? day.sumPrecipitation.toFixed(1) + ' mm' : '-' }}</td>
-            </tr>
+                <tr class="ms-table-row" ng-click="cd.openForecastModal(day.date, cd.cityData.forecastList)" ng-repeat="day in cd.cityData.dailyData"> <!--click to load the day-table component-->
+                    <td >{{ day.date }}</td>
+                    <td class="text-center"><img class="image" ng-src="{{cd.iconUrl + day.iconPerHour.night}}.png" alt=""></td>
+                    <td class="text-center"><img class="image" ng-src="{{cd.iconUrl + day.iconPerHour.morning}}.png" alt=""></td>
+                    <td class="text-center"><img class="image" ng-src="{{cd.iconUrl + day.iconPerHour.afternoon}}.png" alt=""></td>
+                    <td class="text-center"><img class="image" ng-src="{{cd.iconUrl + day.iconPerHour.evening}}.png" alt=""></td>
+                    <td class="text-center">{{ day.minTemp }}° / {{ day.maxTemp }}°</td>
+                    <td class="text-center">{{ day.wind[0].speed }} m/s</td>
+                    <td class="text-center">{{ day.sumPrecipitation > 0 ? day.sumPrecipitation.toFixed(1) + ' mm' : '-' }}</td>
+                </tr>
             </tbody>
         </table>
     </div>
