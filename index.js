@@ -1,6 +1,8 @@
 "use strict";
 var WeaFo = angular.module('WeaFo', ["ngRoute", "ngAnimate", "ui.bootstrap"])
-        .config(function ($routeProvider){
+        .config(function ($routeProvider, $httpProvider) {
+                $httpProvider.interceptors.push('myInterceptor')
+
                 $routeProvider
                     .when('/', {
                         template: "<home></home>",
