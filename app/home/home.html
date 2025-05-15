@@ -11,7 +11,7 @@
             <tbody>
                 <tr class="ms-table-row" ng-click="home.onDetails(cityData.name)" ng-repeat="cityData in home.cityDataList">
                     <td>{{ cityData.name }}</td>
-                    <td class="text-center" ng-repeat="temp in cityData.dailyData | limitTo: 4 track by $index">
+                    <td class="text-center" ng-repeat="temp in cityData.dailyData | limitTo: 4">
                         <img class="image" ng-src="{{home.iconUrl + (temp.iconPerHour.afternoon || temp.icon)}}.png" alt="">{{temp.avgTemp}}°
                     </td>
                 </tr>

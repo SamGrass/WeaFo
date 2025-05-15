@@ -19,13 +19,11 @@ angular.module('WeaFo').controller('cityDetailsController', ['$routeParams', 'wS
     // function to call the modal day-table based on the day clicked
     cd.openForecastModal = function (dailyDay, forecast) {
         cd.dailyForecastList = [];
-        console.log(dailyDay);
         forecast.forEach(function (forecast) {
             if (forecast.time === dailyDay) {
                 cd.dailyForecastList.push(forecast);
             }
         })
-        console.log(cd.dailyForecastList);
         var modalInstance = $uibModal.open({
             animation: true, // or false
             templateUrl: 'app/components/day-table/day-table.html', // ID from <script> or path to HTML file
@@ -39,9 +37,13 @@ angular.module('WeaFo').controller('cityDetailsController', ['$routeParams', 'wS
             }
         })
 
-        // modalInstance.result.then(function (resultFromModal) {
-        //     console.log('Modal closed with result: ' + resultFromModal + ' at: ' + new Date());
-        // });
+        modalInstance.result
+            .then(function (resultFromModal) {
+                console.log('Modal closed with result: ' + resultFromModal + ' at: ' + new Date());
+            })
+            .catch(function (resultFromModal) {
+                console.log('Modal closed with result: ' + resultFromModal + ' at: ' + new Date());
+            })
     }
 
 }])
