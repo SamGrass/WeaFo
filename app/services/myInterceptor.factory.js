@@ -19,26 +19,35 @@ angular.module("WeaFo").factory("myInterceptor", ['$q', '$rootScope', '$log', '$
 
     return {
         'request' : function (config) {
-            showLoader();
+            if (!config.blockLoader){
+                showLoader();
+            }
             return (config)
         },
 
         'requestError': function(rejection) {
-            hideLoader();
-            $location.path('/error');
+            if (!rejection.blockLoader) {
+                hideLoader();
+                $location.path('/error');
+            }
             $log.error('requestError: ' + rejection);
             return $q.reject(rejection);
 
         },
 
         'response': function(response) {
-            hideLoader();
+            if (!response.blockLoader) {
+                hideLoader();
+            }
+
             return response;
         },
 
         'responseError': function(rejection) {
-            hideLoader();
-            $location.path('/error');
+            if (!rejection.blockLoader) {
+                hideLoader();
+                $location.path('/error');
+            }
             $log.error('responseError: ' + rejection.data.message);
             return $q.reject(rejection);
         }
