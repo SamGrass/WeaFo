@@ -14,6 +14,14 @@ angular.module('WeaFo')
                 });
             },
 
+            getNameFromSearchBox: function (name) {
+                return $http({
+                    method: 'GET',
+                    url: `${baseUrl}geo/1.0/direct?q=${name}&limit=5&appid=${apiKey}`,
+                    blockLoader: true
+                })
+            },
+
             getIconBaseUrl: function () {
                 return iconBaseUrl;
             },

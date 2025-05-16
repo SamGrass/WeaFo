@@ -1,10 +1,17 @@
-<div class="d-flex py">
+<div class="d-flex-header gap py">
     <h2>
         <a href="#!/home">
             <img class="ms-logo" src="../../../images/WeaFo-title.png" alt="">
         </a>
     </h2>
-    <ul>
-        <li><a href="#!/home"><i class="fa-solid fa-house"></i></a></li>
-    </ul>
+    <nav class="d-flex-header gap" style="width: 100%;">
+        <input class="flex-grow form-control" type="text"
+               ng-model="header.searchBox"
+               uib-typeahead="city for city in header.getCityTypeahead($viewValue)"
+               typeahead-on-select="header.onDetails($item)"
+               typeahead-min-length="2"
+               typeahead-wait-ms="300"
+               name="" id="">
+        <a href="#!/home"><i class="fa-solid fa-house"></i></a>
+    </nav>
 </div>

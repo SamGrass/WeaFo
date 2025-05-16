@@ -7,11 +7,11 @@ var WeaFo = angular.module('WeaFo', ["ngRoute", "ngAnimate", "ui.bootstrap"])
                     .when('/', {
                         template: "<home></home>",
                     })
-                    .when('/map', {
-                        template: "<map></map>"
+                    .when('/error', {
+                        template: "<error></error>"
                     })
                     .when('/city-details/:city', {
                         template: "<city-details></city-details>"
                     })
-                    .otherwise({ redirectTo: '/'})
+                    .otherwise({ redirectTo: '/error'})
         })
