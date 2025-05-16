@@ -128,11 +128,14 @@ h2{
 }
 
 /* ICONS */
-.fa-house, .fa-xmark{
-    font-size: 3.5rem;
-    transition: color 0.2s ease;
+.fa-star.fa-solid{
+    color: #EDB439;
 }
-.fa-house:hover, .fa-xmark:hover{
+.fa-house, .fa-xmark, .fa-star{
+    font-size: 3.5rem;
+    transition: 0.2s ease;
+}
+.fa-house:hover, .fa-xmark:hover, .fa-star:hover{
     color: #EDB439;
 }
 

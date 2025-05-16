@@ -1,3 +1,29 @@
+<div ng-if="home.favCities.length > 0">
+    <h2>Favorite locations</h2>
+    <div class="panel my">
+        <div class="mx pt">
+            <table class="table mb-0">
+                <thead>
+                <tr>
+                    <th style="width: 35%;"></th>
+                    <th class="text-center" ng-repeat="day in home.favCities[0].dailyData | limitTo: 4">{{day.date}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="ms-table-row" ng-click="home.onDetails(favCity.name)" ng-repeat="favCity in home.favCities">
+                    <td>{{ favCity.name }}<i id="favIcon" ng-click="home.removeFromFavorite(favCity); $event.stopPropagation()" style="font-size: 1rem" class="fa-star" ng-class="isFavorite ? 'fa-solid': 'fa-regular'"></i>
+                    </td>
+                    <td class="text-center" ng-repeat="temp in favCity.dailyData | limitTo: 4">
+                        <img class="image" ng-src="{{home.iconUrl + (temp.iconPerHour.afternoon || temp.icon)}}.png" alt="">{{temp.avgTemp}}°
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
 <h2 class="my">Popular locations</h2>
 <div class="panel my">
     <div class="mx pt">

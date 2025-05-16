@@ -4,7 +4,7 @@ angular.module('WeaFo').controller('cityDetailsController', ['$routeParams', 'wS
     cd.iconUrl = wService.getIconBaseUrl();
     cd.cityData = {};
     cd.now = {};
-
+    cd.toggleFavorite = wService.toggleFavorite;
 
     wService.getCityFromName($routeParams.city)
         .then(function (res) {

@@ -1,4 +1,7 @@
-<h1 class="mb">{{cd.cityData.name}}</h1>
+<div class="d-flex-header gap">
+    <span style="font-size: 4rem" class="mb">{{cd.cityData.name}}</span>
+    <i id="favIcon" ng-click="cd.toggleFavorite(cd.cityData)" style="font-size: 2rem" class="fa-star" ng-class="isFavorite ? 'fa-solid': 'fa-regular'"></i>
+</div>
 
 <!--CURRENT TIME CARD-->
 <div class="panel my" style="width: fit-content;">

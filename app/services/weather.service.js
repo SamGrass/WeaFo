@@ -5,6 +5,7 @@ angular.module('WeaFo')
         const apiKey = '4cd6fd8911f6e75c9afc398da4ee0de5';
         const baseUrl = 'https://api.openweathermap.org/';
         const iconBaseUrl = 'https://openweathermap.org/img/wn/';
+        let favCities = JSON.parse(localStorage.getItem('favCities')) || [];
 
         return {
             getCityFromName: function (city) {
@@ -26,5 +27,19 @@ angular.module('WeaFo')
                 return iconBaseUrl;
             },
 
+            toggleFavorite: function (city) {
+                let isStored = favCities.some(function (storedCity) {
+                    return storedCity.id === city.id;
+                })
+                console.log(isStored);
+                if (isStored) {
+                    favCities = favCities.filter(function (storedCity) {
+                        return storedCity.id !== city.id;
+                    })
+                } else {
+                    favCities.push(city);
+                }
+                localStorage.setItem('favCities', JSON.stringify(favCities));
+            }
         };
     }])

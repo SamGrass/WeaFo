@@ -1,5 +1,6 @@
 class City {
     constructor(apiData) {
+        this.id = apiData.city.id;
         this.name = apiData.city.name;
         this.coord = {
             latitude: apiData.city.coord.lat,
