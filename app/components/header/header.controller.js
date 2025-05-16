@@ -9,7 +9,7 @@ angular.module('WeaFo').controller('headerController', ['wService', '$location',
         return wService.getNameFromSearchBox(city).then(function (res) {
 
             return res.data.map(function (item) {
-                return `${item.name}, ${item.state + ',' || ''} ${item.country || ''}`
+                return `${item.name}, ${item.state ? item.state + ',' : ''} ${item.country || ''}`
             });
 
         }).catch(function (err) {
