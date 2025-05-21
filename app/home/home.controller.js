@@ -4,7 +4,6 @@ angular.module('WeaFo').controller('homeController', ['$location', '$q', 'wServi
     home.iconUrl = wService.getIconBaseUrl();
     home.cityDataList = [];
     home.favCities = JSON.parse(localStorage.getItem('favCities')) || [];
-    console.log(home.favCities);
     home.removeFromFavorite = function (city) {
         wService.toggleFavorite(city);
         home.favCities = JSON.parse(localStorage.getItem('favCities')) || [];

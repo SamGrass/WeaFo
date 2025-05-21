@@ -10,7 +10,6 @@ angular.module('WeaFo').controller('cityDetailsController', ['$routeParams', 'wS
         .then(function (res) {
             cd.cityData = new City(res.data);
             cd.now = cd.cityData.forecastList[0];
-            console.log(cd.cityData);
         })
         .catch(function (err) {
             console.log(err.message);
