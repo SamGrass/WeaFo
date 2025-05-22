@@ -3,11 +3,7 @@ angular.module('WeaFo').controller('homeController', ['$location', '$q', 'wServi
     const home = this;
     home.iconUrl = wService.getIconBaseUrl();
     home.cityDataList = [];
-    home.favCities = JSON.parse(localStorage.getItem('favCities')) || [];
-    home.removeFromFavorite = function (city) {
-        wService.toggleFavorite(city);
-        home.favCities = JSON.parse(localStorage.getItem('favCities')) || [];
-    };
+    home.favCities = wService.getFavoriteCities();
     home.cities = ["London", "Tokyo", "New York", "Paris", "Milan", "Sydney", "Cairo", "Rio de Janeiro", "Toronto", "Berlin"];
     const promises = [];
 

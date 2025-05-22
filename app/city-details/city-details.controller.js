@@ -1,11 +1,10 @@
 angular.module('WeaFo').controller('cityDetailsController', ['$routeParams', 'wService', '$uibModal', function($routeParams, wService, $uibModal) {
     const cd = this;
-    cd.isActive = false;
     cd.iconUrl = wService.getIconBaseUrl();
     cd.cityData = {};
     cd.now = {};
     cd.toggleFavorite = wService.toggleFavorite;
-
+    cd.isFavorite = wService.isFavorite;
     wService.getCityFromName($routeParams.city)
         .then(function (res) {
             cd.cityData = new City(res.data);
@@ -24,12 +23,12 @@ angular.module('WeaFo').controller('cityDetailsController', ['$routeParams', 'wS
             }
         })
         var modalInstance = $uibModal.open({
-            animation: true, // or false
-            templateUrl: 'app/components/day-table/day-table.html', // ID from <script> or path to HTML file
+            animation: true,
+            templateUrl: 'app/components/day-table/day-table.html',
             controller: 'dayTableController',
-            controllerAs: 'dt', // This makes 'dt' available in your modal template
-            size: 'lg', // Optional: 'sm', 'lg', or custom_css_class
-            resolve: { // Pass data to the modal controller
+            controllerAs: 'dt',
+            size: 'lg',
+            resolve: {
                 resolvedForecastItems: function () {
                     return cd.dailyForecastList;
                 },

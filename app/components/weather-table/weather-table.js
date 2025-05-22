@@ -3,7 +3,7 @@ angular.module('WeaFo').component('weatherTable', {
     controller: 'weatherTableController',
     controllerAs: 'wt',
     bindings: {
-        cityDataList: '<',
+        cityDataList: '=',
         iconUrl: '<',
         cityDetails: '&',
     }

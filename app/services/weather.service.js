@@ -27,15 +27,24 @@ angular.module('WeaFo')
                 return iconBaseUrl;
             },
 
-            toggleFavorite: function (city) {
-                let isStored = favCities.some(function (storedCity) {
+            getFavoriteCities: function () {
+                return favCities;
+            },
+            isFavorite: function (city) {
+                return favCities.some(function (storedCity) {
                     return storedCity.id === city.id;
                 })
-                console.log(isStored);
+            },
+            toggleFavorite: function (city) {
+                let isStored = this.isFavorite(city);
+
                 if (isStored) {
-                    favCities = favCities.filter(function (storedCity) {
-                        return storedCity.id !== city.id;
-                    })
+                    const index = favCities.findIndex(function (storedCity) {
+                        return storedCity.id === city.id;
+                    });
+                    if (index > -1) {
+                        favCities.splice(index, 1);
+                    }
                 } else {
                     favCities.push(city);
                 }
