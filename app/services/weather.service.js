@@ -49,6 +49,18 @@ angular.module('WeaFo')
                     favCities.push(city);
                 }
                 localStorage.setItem('favCities', JSON.stringify(favCities));
+            },
+            showToaster: function (message, status) {
+                const toaster = document.createElement('div');
+                toaster.className = `toaster-container label-${status}`;
+                toaster.innerHTML = `<span>${message}</span>`;
+
+                document.body.appendChild(toaster);
+
+                setTimeout(() => {
+                    toaster.remove();
+                }, 3000);
             }
         };
+
     }])

@@ -4,6 +4,6 @@ angular.module('WeaFo').controller('dayTableController',  ['wService', '$uibModa
     dt.forecastList = resolvedForecastItems;
 
     dt.closeTable = function () {
-        $uibModalInstance.close('cancel'); // Or .close('cancel') depending on what you want to signify
+        $uibModalInstance.close('cancel');
     };
 }])
