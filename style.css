@@ -69,10 +69,16 @@ ul{
 a {
     text-decoration: none;
     color: var(--text);
+    transition: 0.2s ease;
+}
+a:hover {
+    color: #EDB439;
+    text-decoration: none;
 }
 h2{
     margin-bottom: 0;
     margin-top: 0;
+    font-weight: 700;
 }
 
 /* MARGIN PADDING*/
@@ -131,11 +137,14 @@ h2{
 .fa-star.fa-solid{
     color: #EDB439;
 }
+.fa-star.fa-solid:hover{
+    color: var(--text);
+}
 .fa-house, .fa-xmark, .fa-star{
     font-size: 3.5rem;
     transition: 0.2s ease;
 }
-.fa-house:hover, .fa-xmark:hover, .fa-star:hover{
+.fa-xmark:hover, .fa-star:hover{
     color: #EDB439;
 }
 
