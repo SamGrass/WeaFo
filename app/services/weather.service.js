@@ -1,5 +1,5 @@
 angular.module('WeaFo')
-    .service('wService', ['$http', function ($http) {
+    .service('wService', ['$http', '$rootScope', function ($http, $rootScope) {
         dayjs.extend(window.dayjs_plugin_utc);
         dayjs.extend(window.dayjs_plugin_timezone);
         const apiKey = '4cd6fd8911f6e75c9afc398da4ee0de5';
@@ -49,6 +49,7 @@ angular.module('WeaFo')
                     favCities.push(city);
                 }
                 localStorage.setItem('favCities', JSON.stringify(favCities));
+                $rootScope.$broadcast('favoritesUpdated');
             },
             showToaster: function (message, status) {
                 const toaster = document.createElement('div');

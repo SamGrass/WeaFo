@@ -1,4 +1,4 @@
-angular.module('WeaFo').controller('weatherTableController',  ['wService', '$uibModal', function(wService,  $uibModal) {
+angular.module('WeaFo').controller('weatherTableController',  ['wService', '$uibModal', '$scope', function(wService,  $uibModal, $scope) {
     const wt = this;
     wt.isFavorite = wService.isFavorite;
     wt.toggleFavorite = function(city) {

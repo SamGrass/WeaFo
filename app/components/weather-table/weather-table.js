@@ -6,5 +6,6 @@ angular.module('WeaFo').component('weatherTable', {
         cityDataList: '=',
         iconUrl: '<',
         cityDetails: '&',
+        tableLimit: '@?',
     }
 })

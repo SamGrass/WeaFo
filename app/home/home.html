@@ -1,10 +1,12 @@
 <div ng-if="home.favCities.length > 0">
-    <h2><a href="#!/favorite-cities">Favorite locations</a></h2>
+    <h2>Newly added to favorites</h2>
     <weather-table
             city-data-list="home.favCities"
             icon-url="home.iconUrl"
-            city-details="home.onDetails(name)">
+            city-details="home.onDetails(name)"
+            table-limit="3">
     </weather-table>
+    <div  ng-if="home.favCities.length > 3"><a style="font-size: 2rem" class="btn btn-default" href="#!/favorite-cities">See all</a></div>
 </div>
 
 

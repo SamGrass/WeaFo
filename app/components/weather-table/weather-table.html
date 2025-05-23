@@ -8,7 +8,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr class="ms-table-row" ng-click="wt.cityDetails({name: cityData.name})" ng-repeat="cityData in wt.cityDataList">
+            <tr class="ms-table-row" ng-click="wt.cityDetails({name: cityData.name})" ng-repeat="cityData in wt.cityDataList | limitTo: wt.tableLimit ? wt.tableLimit : null">
                 <td>{{ cityData.name }} <i ng-click="wt.toggleFavorite(cityData); $event.stopPropagation()" style="font-size: 2rem" class="fa-star" ng-class="wt.isFavorite(cityData) ? 'fa-solid': 'fa-regular'"></i></td>
                 <td class="text-center" ng-repeat="temp in cityData.dailyData | limitTo: 4">
                     <img class="image" ng-src="{{wt.iconUrl + (temp.iconPerHour.afternoon || temp.icon)}}.png" alt="">{{temp.avgTemp}}°
