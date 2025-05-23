@@ -7,9 +7,9 @@ angular.module('WeaFo').controller('homeController', ['$location', '$q', 'wServi
     $scope.$on('favoritesUpdated', function() {
         home.favCities = wService.getFavoriteCities().slice().reverse()
     });
+
     home.cities = ["London", "Tokyo", "New York", "Paris", "Milan", "Sydney", "Cairo", "Rio de Janeiro", "Toronto", "Berlin"];
     const promises = [];
-
     angular.forEach(home.cities, function (city) {
         let promise = wService.getCityFromName(city).then(function (res) {
             return new City(res.data);

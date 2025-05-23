@@ -8,8 +8,6 @@ angular.module('WeaFo').controller('favoriteCitiesController', ['$location', 'wS
     console.log(fc.favCities);
 
     $scope.$watch(function() { return fc.favCities; }, function(newVal, oldVal) {
-        console.log(oldVal);
-        console.log(newVal);
         if (newVal.length === 0) {
             $location.path(`/`);
         }

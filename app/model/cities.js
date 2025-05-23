@@ -20,14 +20,14 @@ class City {
                     icon: data.weather[0].icon
                 },
                 wind: {
-                    speed: Math.round(data.wind.speed * 10) / 10, // meter/sec
+                    speed: parseFloat(data.wind.speed.toFixed(1)), // meter/sec
                     deg: data.wind.deg,
                     gust: data.wind.gust // meter/sec
                 },
 
                 pop: Math.round(data.pop * 100), // Probability of precipitation
-                rain: data.rain ? Math.round(data.rain['3h'] * 10) / 10 : 0,
-                snow: data.snow ? Math.round(data.snow['3h'] * 10) / 10 : 0,
+                rain: data.rain ? parseFloat(data.rain['3h'].toFixed(1)) : 0,
+                snow: data.snow ? parseFloat(data.snow['3h'].toFixed(1)) : 0,
                 humidity: data.main.humidity,
                 dt: data.dt,
                 time: dayjs.unix(data.dt).utcOffset(this.timezone).format('dddd,  D  MMM'),
