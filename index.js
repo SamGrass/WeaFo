@@ -17,8 +17,8 @@ var WeaFo = angular.module('WeaFo', ["ngRoute", "ngAnimate", "ui.bootstrap"])
                             }]
                         }
                     })
-                    .when('/error', {
-                        template: "<error></error>"
+                    .when('/contact-us', {
+                        template: "<contact-us></contact-us>"
                     })
                     .when('/city-details/:city', {
                         template: "<city-details></city-details>"

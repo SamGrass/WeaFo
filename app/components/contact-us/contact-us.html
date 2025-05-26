@@ -1,0 +1,36 @@
+<div class="panel py px" style="max-width: 800px;">
+    <h2 style="padding-bottom: 4rem">Submit a request</h2>
+    <form name="form" class="css-form" novalidate>
+        <div ng-show="!isSent">
+            <div class="form-group">
+                <label>Email address*</label>
+                <input type="email" class="form-control" ng-model="user.email" name="uEmail" required placeholder="Email" ng-model-options="{ debounce: 500 }">
+                <div ng-show="form.$submitted || form.uEmail.$touched">
+                    <span ng-show="form.uEmail.$error.required" style="color: red">Email is required</span>
+                    <span ng-show="form.uEmail.$error.email" style="color: red">This is not a valid email.</span>
+                </div>
+            </div>
+
+            <div class="form-group" >
+                <label>Subject*</label>
+                <input type="text" class="form-control" ng-model="user.subject" ng-model-options="{ debounce: 500 }" name="uSubject" required placeholder="Subject">
+                <div ng-show="form.$submitted || form.uSubject.$touched">
+                    <span ng-show="form.uSubject.$error.required" style="color: red">Subject is required</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="uDescription">Description*</label>
+                <textarea id="uDescription" class="form-control" ng-model="user.description" ng-model-options="{ debounce: 500 }" name="uDescription" required placeholder="Description" rows="5"></textarea>
+                <div ng-show="form.$submitted || form.uDescription.$touched">
+                    <span ng-show="form.uDescription.$error.required" style="color: red">Description is required</span>
+                </div>
+            </div>
+        </div>
+
+        <h3 ng-show="isSent" class="text-success my">Request sent successfully, redirecting to the homepage...</h3>
+
+        <span ng-show="!isSent" class="btn btn-default" ng-click="reset(form)">Reset</span>
+        <span ng-show="!isSent" class="btn btn-default" ng-click="submit(form)">Submit</span>
+    </form>
+</div>

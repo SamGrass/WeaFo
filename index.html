@@ -23,12 +23,16 @@
     <script src="index.js"></script>
     <script src="/app/components/day-table/day-table.js"></script>
     <script src="/app/components/day-table/day-table.controller.js"></script>
+    <script src="/app/components/contact-us/contact-us.js"></script>
+    <script src="/app/components/contact-us/contact-us.controller.js"></script>
     <script src="/app/components/confirm-modal/confirm-modal.js"></script>
     <script src="/app/components/confirm-modal/confirm-modal.controller.js"></script>
     <script src="/app/components/weather-table/weather-table.js"></script>
     <script src="/app/components/weather-table/weather-table.controller.js"></script>
     <script src="/app/components/header/header.controller.js"></script>
     <script src="/app/components/header/header.js"></script>
+    <script src="/app/components/footer/footer.controller.js"></script>
+    <script src="/app/components/footer/footer.js"></script>
     <script src="/app/home/home.controller.js"></script>
     <script src="/app/home/home.js"></script>
     <script src="/app/error/error.controller.js"></script>
@@ -50,10 +54,11 @@
 
         <ng-view ng-show="!$root.isLoading"></ng-view>
 
-
         <div ng-if="$root.isLoading" class="loader-overlay">
             <div class="spinner"></div>
         </div>
+        <footer></footer>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

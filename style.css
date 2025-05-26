@@ -16,11 +16,14 @@ body{
     margin: 0 auto;
     font-size: 1.6rem;
 }
+footer{
+    margin-top: 5rem;
+    border-top: 2px solid var(--text);
+}
 
 /* START LOADER LOGIC */
 
 .loader-overlay {
-    position: fixed; /* Or absolute, depending on your layout */
     top: 0;
     left: 0;
     width: 100%;
@@ -28,7 +31,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* Ensure it's on top */
+    z-index: 9999;
 }
 
 .loader-content {
@@ -83,19 +86,23 @@ h2{
 
 /* MARGIN PADDING*/
 .my{
-    margin: 2rem 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 .mx{
-    margin: 0 2rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
 }
 .mb-0{
     margin-bottom: 0;
 }
 .py{
-    padding: 2rem 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 .px{
-    padding: 0 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 .pt{
     padding-top: 2rem;
@@ -174,4 +181,9 @@ h2{
     border-radius: 5px;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.panel{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
 }
